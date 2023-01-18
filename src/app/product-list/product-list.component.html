@@ -1,2 +1,22 @@
 {{title}}
 <Button (click)="test()" [disabled]="quantity == 0">Click !</Button>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>QUANTITY</th>
+        <th>PRICE</th>
+        <th>LIKE</th>
+    </tr>
+    <tr *ngFor="let p of productList">
+        <td>{{p.id}}</td>
+        <td>{{p.title}}</td>
+        <td>{{p.quantity}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.like}}</td>
+        <td><button (click)="Buy(p.id)" [disabled]="p.quantity == 0">Buy</button></td>
+        <td><button (click)="Like(p.id)">Like</button></td>
+        <td *ngIf="p.like > 10">Best Product</td>
+
+    </tr>
+</table>

@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of userList">
+        <th scope="row">{{u.id}}</th>
+        <td>{{u.username}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.password}}</td>
+        <td *ngIf="u.state == true" >Enabled</td>
+        <td *ngIf="u.state == false">Disabled</td>
+        <td><button type="button" class="btn" [ngClass]="{'btn-success':!u.state,'btn-danger' : u.state}" (click)="updateState(u.id)">{{getButtonMessage(u)}}</button></td>
+      </tr>
+      
+    </tbody>
+  </table>

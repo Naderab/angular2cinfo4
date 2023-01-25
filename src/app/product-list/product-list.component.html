@@ -17,6 +17,6 @@
         <td><button (click)="Buy(p.id)" [disabled]="p.quantity == 0">Buy</button></td>
         <td><button (click)="Like(p.id)">Like</button></td>
         <td *ngIf="p.like > 10">Best Product</td>
-
+        <td><button [routerLink]="['/product/',p.id]">Details</button></td>
     </tr>
 </table>

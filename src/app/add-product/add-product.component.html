@@ -1,0 +1,38 @@
+<form>
+    <div class="form-group">
+        <label class="form-label">Title :</label>
+        <input type="text" name="title" [(ngModel)]="product.title" class="form-control" required minlength="3" #title="ngModel">
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+          <div *ngIf="title.errors?.['required']">  Title is required ! </div>
+         <div *ngIf="title.errors?.['minlength']"> Title must have at least 3 characters .</div>
+
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <label class="form-label">Quantity :</label>
+        <input type="number" name="quantity" [(ngModel)]="product.quantity" class="form-control" required min="0" #quantity="ngModel">
+        <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
+          <div *ngIf="quantity.errors?.['required']">  Quantity is required ! </div>
+         <div *ngIf="quantity.errors?.['min']"> Quantity must be positive ! </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Price :</label>
+        <input type="number" name="price" [(ngModel)]="product.price" class="form-control" required min="0" #price="ngModel">
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+          <div *ngIf="price.errors?.['required']">  Price is required ! </div>
+         <div *ngIf="price.errors?.['min']"> Price must be positive .</div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Ajouter" class="btn btn-success" (click)="ajouter()">
+    </div>
+</form>
+Title : {{product.title}}
+Quantity : {{product.quantity}}
+Price : {{product.price}}
+
+

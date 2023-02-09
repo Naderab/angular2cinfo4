@@ -1,4 +1,6 @@
-<form>
+<div class="container">
+    <div class="row">
+        <form #form="ngForm">
     <div class="form-group">
         <label class="form-label">Title :</label>
         <input type="text" name="title" [(ngModel)]="product.title" class="form-control" required minlength="3" #title="ngModel">
@@ -28,11 +30,15 @@
         </div>
     </div>
     <div class="form-group">
-        <input type="submit" value="Ajouter" class="btn btn-success" (click)="ajouter()">
+        <input type="submit" value="Ajouter" class="btn btn-success" (click)="ajouter()" [disabled]="form.invalid">
     </div>
 </form>
-Title : {{product.title}}
-Quantity : {{product.quantity}}
-Price : {{product.price}}
+Title : {{product.title}} <br>
+Quantity : {{product.quantity}}<br>
+Price : {{product.price}} <br>
+    </div>
+</div>
+
+
 
 

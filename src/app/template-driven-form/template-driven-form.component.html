@@ -1,0 +1,41 @@
+
+<fieldset class="border p-2">
+    <form>
+    <legend class="float-none w-auto p-2">Informations generales</legend>
+    <div class="form-group">
+        <label class="form-label">Nom</label>
+        <input type="text" name="nom" class="form-control" [(ngModel)]="nomUser" required #nom="ngModel">
+        <div class="alert alert-danger" *ngIf="nom.touched && nom.invalid">
+            Nom is required !
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" [(ngModel)]="emailUser" required pattern="[a-zA-Z0-9]+\.[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,4}" #email="ngModel">
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+           <div *ngIf="email.errors?.['required']"> Email is required !</div>
+            <div *ngIf="email.errors?.['pattern']">Invalid email format !</div>
+        </div>
+    </div>
+    <fieldset class="border p-2">
+        <legend class="float-none w-auto p-2">Informations de payement</legend>
+        <div class="form-group">
+            <label class="form-label">Type de carte</label>
+            <input type="text" name="typeC" class="form-control" [(ngModel)]="typeCarte">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Numéro de carte</label>
+            <input type="text" name="numC" class="form-control" [(ngModel)]="numCarte">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Date expiration</label>
+            <input type="date" name="dateC" class="form-control" [(ngModel)]="dateExp">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Code</label>
+            <input type="text" name="codeC" class="form-control" [(ngModel)]="codeCarte">
+        </div>
+</fieldset>
+<input type="submit" value="Ajouter" class="btn btn-success">
+</form>
+</fieldset>

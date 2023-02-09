@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../Entity/product';
+import { ProductService } from '../services/product.service';
+import { ProductConsumerService } from '../services/product-consumer.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,14 +11,16 @@ import { Product } from '../Entity/product';
 export class ProductListComponent implements OnInit {
   title : string = "Bonjour 2 CINFO 4"
   quantity:number=1
-  productList:Product[]=[
-    {id: "1", title: "T-shirt 1", price: 18, quantity: 0, like: 0},
-    {id: "2", title: "T-shirt 2", price: 21, quantity: 10, like: 0},
-    {id: "3", title: "T-shirt 3", price: 16, quantity: 8, like: 0}, ]
+  productListComponent:Product[]=[]
     
-  constructor() { }
+  constructor(private service:ProductService,private productConsumer:ProductConsumerService) { }
 
   ngOnInit(): void {
+    this.productConsumer.getProducts().subscribe({
+    next:(data)=>this.productListComponent=data,
+    error:(error)=>console.log(error),
+    complete:()=>console.log("I m finished")
+  })
   }
   test(){
     console.log("button works !")
@@ -31,13 +35,13 @@ export class ProductListComponent implements OnInit {
     //   }
     // }
 
-    this.productList.map(p=>p.id == id&& p.quantity--)
+    this.productListComponent.map(p=>p.id == id&& p.quantity--)
   }
   Like(id:string) {
-    for(let i=0;i<this.productList.length;i++)
+    for(let i=0;i<this.productListComponent.length;i++)
     {
-      if(this.productList[i].id == id){
-        this.productList[i].like++
+      if(this.productListComponent[i].id == id){
+        this.productListComponent[i].like++
       }
     }
   }

@@ -11,7 +11,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
-
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { ProductService } from './services/product.service';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +23,14 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     NotFoundComponent,
     ProductDetailsComponent,
-    AddProductComponent
+    AddProductComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

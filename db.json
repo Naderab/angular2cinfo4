@@ -1,0 +1,7 @@
+{
+  "products": [
+    {"id": 1, "title": "Tshirt 1", "price": 18, "quantity": 0, "like":0}, 
+    {"id": 2, "title": "Tshirt 2", "price": 21, "quantity": 10,"like": 0}, 
+    {"id": 3, "title": "Tshirt 3", "price": 16, "quantity":8, "like": 0} 
+  ]
+}

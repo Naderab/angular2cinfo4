@@ -5,6 +5,7 @@ import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 const routes: Routes = [
   {path:'products',component:ProductListComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:"",redirectTo:"products",pathMatch:"full"},
   {path:"product/:id",component:ProductDetailsComponent},
   {path:"addProduct",component:AddProductComponent},
+  {path:"tdf",component:TemplateDrivenFormComponent},
   {path:"**",component:NotFoundComponent}
 ];
 

@@ -13,6 +13,7 @@ const routes: Routes = [
   {path:"",redirectTo:"products",pathMatch:"full"},
   {path:"product/:id",component:ProductDetailsComponent},
   {path:"addProduct",component:AddProductComponent},
+  {path:"updateProduct/:id",component:AddProductComponent},
   {path:"tdf",component:TemplateDrivenFormComponent},
   {path:"**",component:NotFoundComponent}
 ];

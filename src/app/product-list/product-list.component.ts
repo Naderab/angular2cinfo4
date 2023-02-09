@@ -45,4 +45,11 @@ export class ProductListComponent implements OnInit {
       }
     }
   }
+  delete(id:any){
+    this.productConsumer.deleteProduct(id).subscribe({
+      next:()=>this.productListComponent=this.productListComponent.filter((p)=>p.id != id),
+      error:(error)=>console.log(error)
+    }
+    )
+  }
 }

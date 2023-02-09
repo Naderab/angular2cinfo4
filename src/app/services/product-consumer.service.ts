@@ -6,7 +6,7 @@ import { Product } from '../Entity/product';
   providedIn: 'root'
 })
 export class ProductConsumerService {
-  apiUrl:string="http://localhost:3000/product"
+  apiUrl:string="http://localhost:3000/products"
   constructor(private http:HttpClient) { }
 
   getProducts(){
@@ -20,5 +20,8 @@ export class ProductConsumerService {
   }
   deleteProduct(id:any){
     return this.http.delete(this.apiUrl+"/"+id)
+  }
+  getProductById(id:any){
+    return this.http.get<Product>(this.apiUrl+"/"+id);
   }
 }

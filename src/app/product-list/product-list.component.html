@@ -18,5 +18,8 @@
         <td><button (click)="Like(p.id)">Like</button></td>
         <td *ngIf="p.like > 10">Best Product</td>
         <td><button [routerLink]="['/product/',p.id]">Details</button></td>
+        <td><button [routerLink]="['/updateProduct/',p.id]">Update</button></td>
+        <td><button (click)="delete(p.id)">Delete</button></td>
+
     </tr>
 </table>
